@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammad Adeel Tariq | Cybersecurity</title>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#050a0e;--bg2:#0a1520;--bg3:#0d1f2d;
+--accent:#00ff88;--accent2:#00d4ff;--accent3:#ff6b35;
+--text:#e0f0ff;--text2:#7a9ab0;--border:#1a3a50;
+}
+body{background:var(--bg);color:var(--text);font-family:'Rajdhani',sans-serif;overflow-x:hidden;line-height:1.6}
+.mono{font-family:'Share Tech Mono',monospace}
+#matrix{position:fixed;top:0;left:0;width:100%;height:100%;opacity:0.04;z-index:0;pointer-events:none}
+nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(5,10,14,0.95);border-bottom:1px solid var(--border);padding:12px 40px;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(10px)}
+.nav-brand{font-family:'Share Tech Mono',monospace;color:var(--accent);font-size:16px;letter-spacing:2px}
+.nav-links{display:flex;gap:24px}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:14px;letter-spacing:1px;transition:color 0.3s;text-transform:uppercase}
+.nav-links a:hover{color:var(--accent)}
+.status-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);display:inline-block;margin-right:8px;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(0,255,136,0.4)}50%{opacity:0.7;box-shadow:0 0 0 6px rgba(0,255,136,0)}}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;z-index:1;padding:100px 40px 60px}
+.hero-content{max-width:900px;width:100%}
+.hero-tag{font-family:'Share Tech Mono',monospace;color:var(--accent2);font-size:13px;letter-spacing:3px;margin-bottom:20px;opacity:0.8}
+.hero h1{font-size:clamp(36px,6vw,72px);font-weight:700;line-height:1.1;margin-bottom:16px;letter-spacing:2px}
+.hero h1 span{color:var(--accent)}
+.typing{color:var(--accent);border-right:2px solid var(--accent);padding-right:4px;animation:blink 0.8s infinite}
+@keyframes blink{0%,100%{border-color:var(--accent)}50%{border-color:transparent}}
+.hero-desc{font-size:17px;color:var(--text2);max-width:600px;margin:24px 0 36px;line-height:1.8}
+.btn-group{display:flex;gap:16px;flex-wrap:wrap}
+.btn{padding:12px 28px;border-radius:4px;font-family:'Share Tech Mono',monospace;font-size:13px;letter-spacing:2px;cursor:pointer;transition:all 0.3s;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn-primary{background:var(--accent);color:#000;border:none;font-weight:700}
+.btn-primary:hover{background:#00cc6e;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,255,136,0.3)}
+.btn-outline{background:transparent;color:var(--accent2);border:1px solid var(--accent2)}
+.btn-outline:hover{background:rgba(0,212,255,0.1);transform:translateY(-2px)}
+.hero-stats{display:flex;gap:40px;margin-top:60px;padding-top:40px;border-top:1px solid var(--border);flex-wrap:wrap}
+.stat{text-align:center}
+.stat-num{font-size:32px;font-weight:700;color:var(--accent);font-family:'Share Tech Mono',monospace}
+.stat-label{font-size:12px;color:var(--text2);letter-spacing:2px;text-transform:uppercase}
+section{position:relative;z-index:1;padding:80px 40px}
+.section-header{margin-bottom:48px}
+.section-tag{font-family:'Share Tech Mono',monospace;color:var(--accent);font-size:12px;letter-spacing:3px;margin-bottom:12px}
+.section-title{font-size:clamp(28px,4vw,42px);font-weight:700;letter-spacing:1px}
+.section-title span{color:var(--accent2)}
+.container{max-width:1000px;margin:0 auto}
+.terminal{background:var(--bg2);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:32px}
+.terminal-header{background:var(--bg3);padding:12px 20px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border)}
+.dot{width:12px;height:12px;border-radius:50%}
+.dot-red{background:#ff5f56}.dot-yellow{background:#ffbd2e}.dot-green{background:#27c93f}
+.terminal-title{font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--text2);margin-left:12px;letter-spacing:1px}
+.terminal-body{padding:24px;font-family:'Share Tech Mono',monospace;font-size:13px;line-height:2}
+.cmd{color:var(--accent)}.cmd-output{color:var(--text2)}.highlight{color:var(--accent2)}.danger{color:var(--accent3)}.success{color:var(--accent)}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.skill-card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:24px;transition:all 0.3s;position:relative;overflow:hidden}
+.skill-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.skill-card:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,255,136,0.1)}
+.skill-icon{font-size:28px;margin-bottom:16px}
+.skill-title{font-size:16px;font-weight:700;color:var(--accent2);margin-bottom:12px;letter-spacing:1px}
+.skill-tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{background:rgba(0,255,136,0.08);border:1px solid rgba(0,255,136,0.2);color:var(--accent);padding:3px 10px;border-radius:3px;font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:1px}
+.tag.blue{background:rgba(0,212,255,0.08);border-color:rgba(0,212,255,0.2);color:var(--accent2)}
+.tag.orange{background:rgba(255,107,53,0.08);border-color:rgba(255,107,53,0.2);color:var(--accent3)}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.project-card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:28px;transition:all 0.3s}
+.project-card:hover{border-color:var(--accent2);box-shadow:0 8px 32px rgba(0,212,255,0.1)}
+.project-num{font-family:'Share Tech Mono',monospace;color:var(--accent);font-size:12px;letter-spacing:2px;margin-bottom:12px}
+.project-title{font-size:18px;font-weight:700;margin-bottom:10px;color:var(--text)}
+.project-desc{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:16px}
+.project-tools{display:flex;flex-wrap:wrap;gap:6px}
+.timeline{position:relative;padding-left:32px}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--border)}
+.timeline-item{position:relative;margin-bottom:40px;padding-left:24px}
+.timeline-item::before{content:'';position:absolute;left:-37px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
+.timeline-date{font-family:'Share Tech Mono',monospace;color:var(--accent);font-size:12px;letter-spacing:2px;margin-bottom:8px}
+.timeline-title{font-size:18px;font-weight:700;margin-bottom:4px}
+.timeline-org{color:var(--accent2);font-size:14px;margin-bottom:10px}
+.timeline-desc{color:var(--text2);font-size:14px;line-height:1.7}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.contact-info{display:flex;flex-direction:column;gap:16px}
+.contact-item{display:flex;align-items:center;gap:16px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:16px 20px;transition:all 0.3s}
+.contact-item:hover{border-color:var(--accent);background:rgba(0,255,136,0.03)}
+.contact-icon{width:40px;height:40px;border-radius:6px;background:rgba(0,255,136,0.1);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.contact-label{font-size:12px;color:var(--text2);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px}
+.contact-value{font-family:'Share Tech Mono',monospace;color:var(--accent2);font-size:14px}
+.ceh-badge{background:linear-gradient(135deg,#1a0a00,#2d1500);border:1px solid var(--accent3);border-radius:12px;padding:32px;text-align:center}
+.ceh-badge .badge-icon{font-size:48px;margin-bottom:16px}
+.ceh-badge h3{font-size:20px;color:var(--accent3);margin-bottom:8px;letter-spacing:2px}
+.ceh-badge p{color:var(--text2);font-size:14px;margin-bottom:16px}
+.progress-bar{background:var(--border);border-radius:4px;height:6px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--accent3),#ff9f00);border-radius:4px;width:0;transition:width 2s ease}
+.progress-label{font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--accent3);text-align:right;margin-top:6px}
+.scanline{position:fixed;top:0;left:0;width:100%;height:100%;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px);pointer-events:none;z-index:0}
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px 40px;text-align:center;position:relative;z-index:1}
+.footer-text{font-family:'Share Tech Mono',monospace;color:var(--text2);font-size:12px;letter-spacing:2px}
+.footer-text span{color:var(--accent)}
+@media(max-width:600px){nav{padding:12px 20px}.nav-links{display:none}.hero{padding:100px 20px 60px}section{padding:60px 20px}.contact-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<canvas id="matrix"></canvas>
+<div class="scanline"></div>
+<nav>
+  <div class="nav-brand mono"><span class="status-dot"></span>M.ADEEL.TARIQ</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+<section class="hero" id="about">
+  <div class="hero-content">
+    <div class="hero-tag mono">// INITIALIZING PORTFOLIO.EXE</div>
+    <h1>Muhammad<br><span>Adeel Tariq</span></h1>
+    <div class="mono" style="color:var(--text2);font-size:14px;margin-bottom:8px">
+      root@kali:~$ whoami → <span class="typing" id="typing-text">Penetration Tester</span>
+    </div>
+    <p class="hero-desc">IT Graduate specializing in Cybersecurity, Penetration Testing & OSINT. Hands-on experience with real-world vulnerability exploitation in isolated lab environments. Currently pursuing CEH (EC-Council) — Expected May 2026.</p>
+    <div class="btn-group">
+      <a href="#projects" class="btn btn-primary">▶ View Projects</a>
+      <a href="#contact" class="btn btn-outline">⚡ Contact Me</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">4+</div><div class="stat-label">Lab Projects</div></div>
+      <div class="stat"><div class="stat-num">10+</div><div class="stat-label">CTF Tasks</div></div>
+      <div class="stat"><div class="stat-num">3.41</div><div class="stat-label">CGPA</div></div>
+      <div class="stat"><div class="stat-num">CEH</div><div class="stat-label">In Progress</div></div>
+    </div>
+  </div>
+</section>
+<section style="padding:40px 40px 80px;position:relative;z-index:1">
+  <div class="container">
+    <div class="terminal">
+      <div class="terminal-header">
+        <div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div>
+        <span class="terminal-title">kali@terminal — about.sh</span>
+      </div>
+      <div class="terminal-body">
+        <div><span class="cmd">$ </span><span class="highlight">cat about.txt</span></div>
+        <div class="cmd-output">Name    : Muhammad Adeel Tariq</div>
+        <div class="cmd-output">Role    : <span class="success">Penetration Tester | OSINT Specialist</span></div>
+        <div class="cmd-output">Location: Muzaffargarh, Punjab, Pakistan</div>
+        <div class="cmd-output">Degree  : BS Information Technology — GCUF (CGPA: 3.41)</div>
+        <div class="cmd-output">Status  : <span class="success">Available for Internship</span></div>
+        <br>
+        <div><span class="cmd">$ </span><span class="highlight">cat tools.txt</span></div>
+        <div class="cmd-output">Offensive: <span class="danger">Metasploit | msfvenom | Nmap | Burp Suite | Unicorn</span></div>
+        <div class="cmd-output">OSINT    : <span class="highlight">Shodan | Maltego | Censys | Google Dorking | IntelX</span></div>
+        <div class="cmd-output">Platform : <span class="success">Kali Linux | VirtualBox | Apache2 | Windows</span></div>
+        <br>
+        <div><span class="cmd">$ </span><span class="highlight">./status.sh</span></div>
+        <div class="cmd-output">[<span class="success">✓</span>] CEH Certification — IN PROGRESS (May 2026)</div>
+        <div class="cmd-output">[<span class="success">✓</span>] GitHub CTF Writeups — ACTIVE</div>
+        <div class="cmd-output">[<span class="success">✓</span>] Cybersecurity Internship — SEEKING</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="skills" style="padding:80px 40px;position:relative;z-index:1">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag mono">// SKILLS.SH</div>
+      <h2 class="section-title">Technical <span>Arsenal</span></h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card"><div class="skill-icon">🔴</div><div class="skill-title">Penetration Testing</div><div class="skill-tags"><span class="tag">Metasploit</span><span class="tag">Nmap</span><span class="tag">msfvenom</span><span class="tag">Burp Suite</span><span class="tag">CVE Research</span></div></div>
+      <div class="skill-card"><div class="skill-icon">🔍</div><div class="skill-title">OSINT & Recon</div><div class="skill-tags"><span class="tag blue">Shodan</span><span class="tag blue">Maltego</span><span class="tag blue">Censys</span><span class="tag blue">IntelX</span><span class="tag blue">Google Dorking</span></div></div>
+      <div class="skill-card"><div class="skill-icon">🌐</div><div class="skill-title">Networking</div><div class="skill-tags"><span class="tag">TCP/IP</span><span class="tag">Wireshark</span><span class="tag">LAN/WAN</span><span class="tag">Subnetting</span></div></div>
+      <div class="skill-card"><div class="skill-icon">💻</div><div class="skill-title">OS & Platforms</div><div class="skill-tags"><span class="tag orange">Kali Linux</span><span class="tag orange">VirtualBox</span><span class="tag orange">Apache2</span><span class="tag orange">Windows</span></div></div>
+      <div class="skill-card"><div class="skill-icon">⚙️</div><div class="skill-title">Automation</div><div class="skill-tags"><span class="tag blue">Google Workspace</span><span class="tag blue">Apps Script</span><span class="tag blue">WhatsApp API</span><span class="tag blue">CRM Systems</span></div></div>
+      <div class="skill-card"><div class="skill-icon">📣</div><div class="skill-title">Digital Marketing</div><div class="skill-tags"><span class="tag orange">Meta Ads</span><span class="tag orange">Lead Generation</span><span class="tag orange">Facebook Ads</span></div></div>
+    </div>
+  </div>
+</section>
+<section id="projects" style="padding:80px 40px;position:relative;z-index:1;background:rgba(10,21,32,0.5)">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag mono">// PROJECTS.SH</div>
+      <h2 class="section-title">Lab <span>Projects</span></h2>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card"><div class="project-num">01 // WEEK-3</div><div class="project-title">Malware Delivery & Persistence</div><div class="project-desc">Macro-based malware via Excel, fileless malware via fake CAPTCHA, post-exploitation registry persistence, DMARC/SPF/DKIM email security assessment.</div><div class="project-tools"><span class="tag">Metasploit</span><span class="tag">Unicorn</span><span class="tag">msfvenom</span><span class="tag">Apache2</span></div></div>
+      <div class="project-card"><div class="project-num">02 // WEEK-4</div><div class="project-title">MS17-010 & MS08-067 Exploitation</div><div class="project-desc">Full vulnerability assessment on Windows targets. Exploited EternalBlue (CVE-2017-0143) gaining NT AUTHORITY\SYSTEM. Post-exploitation admin account creation.</div><div class="project-tools"><span class="tag">Nmap</span><span class="tag">Metasploit</span><span class="tag">Meterpreter</span></div></div>
+      <div class="project-card"><div class="project-num">03 // WEEK-3</div><div class="project-title">Nmap CTF — Network Enumeration</div><div class="project-desc">7 CTF challenges: host discovery, full port sweep (5 hidden ports), service version detection, OS fingerprinting, aggressive recon, firewall evasion, NSE scripts.</div><div class="project-tools"><span class="tag blue">Nmap</span><span class="tag blue">NSE Scripts</span><span class="tag blue">Kali Linux</span></div></div>
+      <div class="project-card"><div class="project-num">04 // ONGOING</div><div class="project-title">CTF Writeups & Security Research</div><div class="project-desc">Active CTF participation with documented writeups on GitHub. Covers MS17-010, MS08-067, Nmap CTF, payload delivery, OSINT techniques.</div><div class="project-tools"><span class="tag orange">GitHub</span><span class="tag orange">Shodan</span><span class="tag orange">Google Dorking</span></div></div>
+    </div>
+    <div style="text-align:center;margin-top:32px"><a href="https://github.com/adeel635/ctf-writeups" class="btn btn-outline">⚡ View GitHub Writeups</a></div>
+  </div>
+</section>
+<section id="experience" style="padding:80px 40px;position:relative;z-index:1">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag mono">// EXPERIENCE.SH</div>
+      <h2 class="section-title">Work <span>Experience</span></h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item"><div class="timeline-date">FEB 2026 — PRESENT</div><div class="timeline-title">Penetration Testing & Security Researcher</div><div class="timeline-org">Corvit Institute — Self-Directed Lab</div><div class="timeline-desc">Hands-on penetration testing in Kali Linux + VirtualBox lab. Exploited MS17-010, MS08-067, conducted OSINT recon, malware delivery simulations, registry persistence attacks.</div></div>
+      <div class="timeline-item"><div class="timeline-date">2022 — PRESENT</div><div class="timeline-title">Digital & Social Media Manager</div><div class="timeline-org">BISP — Benazir Income Support Programme</div><div class="timeline-desc">Managing official digital presence of government welfare initiative. Grew community to 11,000+ engaged followers across platforms.</div></div>
+      <div class="timeline-item"><div class="timeline-date">OCT 2024 — JAN 2026</div><div class="timeline-title">Meta Ads Expert</div><div class="timeline-org">PrimeVibe Store</div><div class="timeline-desc">Managed Facebook ad campaigns, audience targeting, optimization and ROI analysis for e-commerce store growth.</div></div>
+    </div>
+  </div>
+</section>
+<section style="padding:40px 40px 80px;position:relative;z-index:1;background:rgba(10,21,32,0.5)">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag mono">// CERTIFICATIONS.SH</div>
+      <h2 class="section-title">Current <span>Certification</span></h2>
+    </div>
+    <div style="max-width:500px">
+      <div class="ceh-badge">
+        <div class="badge-icon">🛡️</div>
+        <h3>CERTIFIED ETHICAL HACKER</h3>
+        <p>EC-Council | CEH v13<br>Expected Completion: May 2026</p>
+        <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+        <div class="progress-label">65% Complete</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="contact" style="padding:80px 40px;position:relative;z-index:1">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag mono">// CONTACT.SH</div>
+      <h2 class="section-title">Get In <span>Touch</span></h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item"><div class="contact-icon">📧</div><div><div class="contact-label">Email</div><div class="contact-value">adeeltariq1k@gmail.com</div></div></div>
+        <div class="contact-item"><div class="contact-icon">📱</div><div><div class="contact-label">Phone</div><div class="contact-value">+92 331-7804961</div></div></div>
+        <div class="contact-item"><div class="contact-icon">📍</div><div><div class="contact-label">Location</div><div class="contact-value">Muzaffargarh, Punjab, Pakistan</div></div></div>
+        <div class="contact-item"><div class="contact-icon">💼</div><div><div class="contact-label">LinkedIn</div><div class="contact-value">muhammad-adeel-tariq56</div></div></div>
+        <div class="contact-item"><div class="contact-icon">🐙</div><div><div class="contact-label">GitHub</div><div class="contact-value">github.com/adeel635</div></div></div>
+      </div>
+      <div>
+        <div class="terminal">
+          <div class="terminal-header"><div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div><span class="terminal-title">send_message.sh</span></div>
+          <div class="terminal-body">
+            <div><span class="cmd">$ </span><span class="highlight">./hire_me.sh</span></div><br>
+            <div class="cmd-output">Looking for a dedicated cybersecurity intern who brings:</div><br>
+            <div class="cmd-output"><span class="success">[✓]</span> Hands-on pen testing skills</div>
+            <div class="cmd-output"><span class="success">[✓]</span> CEH certification (May 2026)</div>
+            <div class="cmd-output"><span class="success">[✓]</span> Real lab exploit experience</div>
+            <div class="cmd-output"><span class="success">[✓]</span> OSINT & recon expertise</div>
+            <div class="cmd-output"><span class="success">[✓]</span> Strong documentation habits</div><br>
+            <div class="cmd-output"><span class="highlight">→ Let's connect!</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="footer-text">
+    Muhammad Adeel Tariq &nbsp;|&nbsp; <span>Cybersecurity Professional</span> &nbsp;|&nbsp; Muzaffargarh, Pakistan<br><br>
+    <span style="opacity:0.4">// root@portfolio:~$ exit</span>
+  </div>
+</footer>
+<script>
+const canvas=document.getElementById('matrix');
+const ctx=canvas.getContext('2d');
+canvas.width=window.innerWidth;canvas.height=window.innerHeight;
+const cols=Math.floor(canvas.width/16);
+const drops=Array(cols).fill(1);
+const chars='01アイウエオカキクケコサシスセソタチ@#$%&ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+function drawMatrix(){ctx.fillStyle='rgba(5,10,14,0.05)';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.fillStyle='#00ff88';ctx.font='14px Share Tech Mono';drops.forEach((y,i)=>{const c=chars[Math.floor(Math.random()*chars.length)];ctx.fillText(c,i*16,y*16);if(y*16>canvas.height&&Math.random()>0.975)drops[i]=0;drops[i]++;});}
+setInterval(drawMatrix,50);
+window.addEventListener('resize',()=>{canvas.width=window.innerWidth;canvas.height=window.innerHeight});
+const words=['Penetration Tester','OSINT Specialist','CEH Candidate','Security Researcher','Ethical Hacker'];
+let wi=0,ci=0,del=false;
+const el=document.getElementById('typing-text');
+function type(){const w=words[wi];el.textContent=del?w.substring(0,ci--):w.substring(0,ci++);if(!del&&ci===w.length+1){del=true;setTimeout(type,1500);return}if(del&&ci===0){del=false;wi=(wi+1)%words.length}setTimeout(type,del?60:100);}
+type();
+setTimeout(()=>{document.getElementById('progress').style.width='65%'},500);
+</script>
+</body>
+</html>
